@@ -10,12 +10,37 @@ public class Main {
     System.out.println("I have 3 " + threeDogs);
 
 
+    flipNHeads(2);
+    flipNHeads(3);
 
 
   }
 
   
-  public static void loopTo(int max) {
+  public static void flipNHeads(int n) {
+    int count = 0;
+    int headCount = 0;
+    int headsInRow[] = new int[n];
+
+   while(headCount < headsInRow.length){
+
+    double rand= Math.random();
+    if(rand < 0.5){
+      System.out.println("tails");
+      headCount = 0;
+      headsInRow = new int[n];
+    }else{
+      System.out.println("heads");
+      headsInRow[headCount++] = 1;
+    }
+    count++;
+   }
+
+   System.out.println("It took " + count + " flips to flip " + n + " heads in a row.");
+
+  }
+
+  public static void clock() {
    
   }
 
