@@ -1,18 +1,23 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Main {
   public static void main(String[] args) {
    
-    String noDog = pluralize("dog", 0);
-    String oneDog = pluralize("dog", 1);
-    String threeDogs = pluralize("dog", 3);
+    // String noDog = pluralize("dog", 0);
+    // String oneDog = pluralize("dog", 1);
+    // String threeDogs = pluralize("dog", 3);
     
-    System.out.println("I have 0 " + noDog);
-    System.out.println("I have 1 " + oneDog);
-    System.out.println("I have 3 " + threeDogs);
+    // System.out.println("I have 0 " + noDog);
+    // System.out.println("I have 1 " + oneDog);
+    // System.out.println("I have 3 " + threeDogs);
 
 
-    flipNHeads(2);
-    flipNHeads(3);
+    // flipNHeads(2);
+    // flipNHeads(3);
 
+
+    clock();
 
   }
 
@@ -41,7 +46,16 @@ public class Main {
   }
 
   public static void clock() {
-   
+    int prevSec = 0;
+    while(true){
+      LocalDateTime now = LocalDateTime.now();
+      int second = now.getSecond();
+      String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+      if(prevSec != second){
+        System.out.println(time);
+        prevSec = second;
+      }
+    }
   }
 
   
