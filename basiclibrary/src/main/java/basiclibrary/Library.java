@@ -44,5 +44,21 @@ public class Library {
 
     // Arrays of Arrays
     // Given an array of arrays calculate the average value for each array and return the array with the lowest average.
+    public static double lowestAvg(int[][] arr){
+        double lowestAvg = Double.MAX_VALUE;
+        double sum = 0;
+
+        for (int[] innerArr: arr) {
+            for (int val: innerArr) {
+                sum += (double) val;
+            }
+            double currAvg = sum / innerArr.length;
+            if(currAvg < lowestAvg) lowestAvg = currAvg;
+            sum = 0;
+        }
+        System.out.println(lowestAvg);
+        return lowestAvg;
+
+    }
 
 }
