@@ -56,7 +56,6 @@ public class Library {
             if(currAvg < lowestAvg) lowestAvg = currAvg;
             sum = 0;
         }
-        System.out.println(lowestAvg);
         return lowestAvg;
 
     }
