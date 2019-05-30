@@ -20,13 +20,9 @@ public class Linter {
 
     public static void jsLinter(Path path) throws IOException {
         BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
-        String result = "";
         String line = "";
         int lineNumber = 1;
         while ((line = reader.readLine()) != null) {
-            //System.out.println(line);
-
-            result += line;
 
             if(!line.contains(";") && (!line.contains("if") || !line.contains("else"))
                     && !line.isEmpty() && !line.contains("{") && !line.endsWith("}") && !line.startsWith("//")){
