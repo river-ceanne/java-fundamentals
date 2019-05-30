@@ -5,6 +5,9 @@ package basiclibrary;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static basiclibrary.Library.*;
 import static org.junit.Assert.*;
 
@@ -50,4 +53,36 @@ public class LibraryTest {
         assertTrue("Lowest Avg :",lowestAvg(weeklyMonthTemperatures) == expected);
 
     }
+
+    @Test
+    public void testAnalyzeWeatherData(){
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        analyzeWeatherData(weeklyMonthTemperatures);
+
+    }
+
+    @Test
+    public void testTally(){
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Bubbles");
+        stringList.add("Blossom");
+        stringList.add("Buttercup");
+        stringList.add("Bubbles");
+        stringList.add("Bubbles");
+        stringList.add("Bubbles");
+        stringList.add("Blossom");
+
+        String res = tally(stringList);
+
+        assertTrue("Test Tally : ",res == "Bubbles");
+
+    }
+
+
 }
