@@ -3,6 +3,8 @@
  */
 package basiclibrary;
 
+import java.util.*;
+
 public class Library {
 
     // Rolling Dice
@@ -57,6 +59,54 @@ public class Library {
             sum = 0;
         }
         return lowestAvg;
+
+    }
+
+    // Analyzing Weather Data
+    // Use the October Seattle weather data above. Iterate through all of the data to find the min and max values.
+    // Use a HashSet of type Integer to keep track of all the unique temperatures seen.
+    // Finally, iterate from the min temp to the max temp and print out any temperature not seen during the month.
+    public static void analyzeWeatherData(int[][] weatherData){
+        HashSet<Integer> temps = new HashSet<>();
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+
+        for(int[] weekly: weatherData){
+            for(int daily: weekly){
+                temps.add(daily);
+                if(daily < min) min = daily;
+                if(daily > max) max = daily;
+            }
+        }
+
+        List<Integer> notIncluded = new ArrayList<>();
+
+        for (int i = min; i < max; i++) {
+            if(!temps.contains(i)) notIncluded.add(i);
+        }
+
+        String concats = "";
+        for(Integer i: notIncluded){
+            concats += String.format("Never saw temperature: %d\n",i);
+        }
+
+        System.out.println(String.format("High: %d\nLow: %d\n%s",max,min,concats));
+
+    }
+
+    // Tallying Election
+    // Write a function called tally that accepts a List of Strings representing votes and returns one string to
+    // show what got the most votes.
+    public static String tally(List<String> stringList){
+        HashMap<String,Integer> tallyList = new HashMap<>();
+        for (String vote: stringList) {
+            if (tallyList.containsKey(vote)) {
+                tallyList.put(vote, tallyList.get(vote)+1);
+            } else {
+                tallyList.put(vote,1);
+            }
+        }
+
+        return Collections.max(tallyList.entrySet(), Map.Entry.comparingByValue()).getKey();
 
     }
 

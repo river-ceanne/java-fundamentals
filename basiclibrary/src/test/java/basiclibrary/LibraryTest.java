@@ -5,6 +5,11 @@ package basiclibrary;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import static basiclibrary.Library.*;
 import static org.junit.Assert.*;
 
@@ -50,4 +55,46 @@ public class LibraryTest {
         assertTrue("Lowest Avg :",lowestAvg(weeklyMonthTemperatures) == expected);
 
     }
+
+    @Test
+    public void testAnalyzeWeatherData(){
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        analyzeWeatherData(weeklyMonthTemperatures);
+
+        assertEquals("High: 72\n"+
+                "Low: 51\n" +
+                "Never saw temperature: 63\n" +
+                "Never saw temperature: 67\n" +
+                "Never saw temperature: 68\n" +
+                "Never saw temperature: 69\n\n", outContent.toString());
+
+    }
+
+    @Test
+    public void testTally(){
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Bubbles");
+        stringList.add("Blossom");
+        stringList.add("Buttercup");
+        stringList.add("Bubbles");
+        stringList.add("Bubbles");
+        stringList.add("Bubbles");
+        stringList.add("Blossom");
+
+        String res = tally(stringList);
+
+        assertTrue("Test Tally : ",res == "Bubbles");
+
+    }
+
+
 }
