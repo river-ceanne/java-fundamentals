@@ -89,7 +89,7 @@ public class Library {
             concats += String.format("Never saw temperature: %d\n",i);
         }
 
-        System.out.println(String.format("High: %d\nLow:%d\n%s",max,min,concats));
+        System.out.println(String.format("High: %d\nLow: %d\n%s",max,min,concats));
 
     }
 

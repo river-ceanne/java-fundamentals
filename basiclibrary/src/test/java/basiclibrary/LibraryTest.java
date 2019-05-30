@@ -5,6 +5,8 @@ package basiclibrary;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +65,17 @@ public class LibraryTest {
                 {65, 56, 55, 52, 55, 62, 57}
         };
 
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
         analyzeWeatherData(weeklyMonthTemperatures);
+
+        assertEquals("High: 72\n"+
+                "Low: 51\n" +
+                "Never saw temperature: 63\n" +
+                "Never saw temperature: 67\n" +
+                "Never saw temperature: 68\n" +
+                "Never saw temperature: 69\n\n", outContent.toString());
 
     }
 
