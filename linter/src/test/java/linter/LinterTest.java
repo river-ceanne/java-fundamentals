@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
-import static linter.Linter.jsLinter;
+import static linter.App.jsLinter;
 import static org.junit.Assert.*;
 
 public class LinterTest {

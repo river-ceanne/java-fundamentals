@@ -10,7 +10,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class Linter {
+public class App {
 
     public static void main(String[] args) throws IOException {
         Path path = FileSystems.getDefault().getPath("src/main/resources", "gates.js");
