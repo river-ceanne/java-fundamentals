@@ -22,10 +22,19 @@ public class Linter {
         BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
         String result = "";
         String line = "";
+        int lineNumber = 0;
         while ((line = reader.readLine()) != null) {
-            System.out.println(line);
+            //System.out.println(line);
 
             result += line;
+
+            if(!line.contains(";") && (!line.contains("if") || !line.contains("else"))
+                    && !line.isEmpty() && !line.contains("{") && !line.endsWith("}")){
+                System.out.println(line);
+                System.err.println(String.format("Line %d: Missing semicolon.",lineNumber));
+            }
+
+            lineNumber++;
         }
     }
 }
