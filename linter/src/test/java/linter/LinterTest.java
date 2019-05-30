@@ -5,7 +5,6 @@ package linter;
 
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -16,8 +15,9 @@ import static linter.Linter.jsLinter;
 import static org.junit.Assert.*;
 
 public class LinterTest {
-    @Test public void testJSLinter() throws IOException {
-        Path path = FileSystems.getDefault().getPath("src/main/resources", "gates.js");
+
+    @Test public void testJSLinterManyErrors() throws IOException {
+        Path path = FileSystems.getDefault().getPath("src/test/resources", "gates.js");
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setErr(new PrintStream(outContent));
 
@@ -71,5 +71,50 @@ public class LinterTest {
                 "Line 99: Missing semicolon.\n" +
                 "Line 100: Missing semicolon.\n" +
                 "Line 101: Missing semicolon.\n", outContent.toString());
+    }
+
+
+    @Test public void testJSLinterOneError() throws IOException {
+        Path path = FileSystems.getDefault().getPath("src/test/resources", "oneErrorTest.js");
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(outContent));
+
+        jsLinter(path);
+
+        assertEquals(1,outContent.toString().lines().count());
+
+    }
+
+    @Test public void testJSLinterNoErrors() throws IOException {
+        Path path = FileSystems.getDefault().getPath("src/test/resources", "noErrorTest.js");
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(outContent));
+
+        jsLinter(path);
+
+        assertEquals(0,outContent.toString().lines().count());
+
+    }
+
+    @Test public void testJSLinterSomeErrors() throws IOException {
+        Path path = FileSystems.getDefault().getPath("src/test/resources", "someErrorTest.js");
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(outContent));
+
+        jsLinter(path);
+
+        assertEquals(3,outContent.toString().lines().count());
+
+    }
+
+    @Test public void testJSLinterEmptyFile() throws IOException {
+        Path path = FileSystems.getDefault().getPath("src/test/resources", "empty.js");
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(outContent));
+
+        jsLinter(path);
+
+        assertEquals(0,outContent.toString().lines().count());
+
     }
 }
