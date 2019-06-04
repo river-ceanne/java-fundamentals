@@ -14,7 +14,12 @@ public class Restaurant {
     private int priceCategory;
     private ArrayList<Review> reviews;
 
-    public Restaurant(){}
+    public Restaurant(){
+        this.name = "";
+        this.stars = 0; //# of stars
+        this.priceCategory = 0; //# of dollar signs
+        this.reviews = new ArrayList<>();
+    }
 
     public Restaurant(String name, int stars, int priceCategory, ArrayList<Review> reviews){
         this.name = name;
@@ -55,12 +60,19 @@ public class Restaurant {
         this.reviews = reviews;
     }
 
-    public void addReview(){
-
+    public void addReview(Review review){
+        this.reviews.add(review);
+        int sum = 0;
+        for (Review val: this.reviews) {
+            sum += val.getStars();
+        }
+        this.setStars(sum / this.reviews.size());
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format("Restaurant Name: %s\n" +
+                "# of Stars: %d\n" +
+                "Price Category: %s" ,this.name,this.stars,this.priceCategory,this.reviews);
     }
 }

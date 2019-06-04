@@ -40,6 +40,8 @@ public class Review {
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format("Author: %s\n" +
+                "# of Stars: %d\n" +
+                "Body: %s\n",this.author,this.stars,this.body);
     }
 }
