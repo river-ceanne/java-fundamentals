@@ -71,8 +71,15 @@ public class Restaurant {
 
     @Override
     public String toString() {
+
+        StringBuilder priceCat = new StringBuilder();
+        for(int i = 0; i < this.getPriceCategory(); i++){
+            priceCat.append("$");
+        }
+
+
         return String.format("Restaurant Name: %s\n" +
                 "# of Stars: %d\n" +
-                "Price Category: %s" ,this.name,this.stars,this.priceCategory,this.reviews);
+                "Price Category: %s" ,this.name,this.stars,priceCat.toString(),this.reviews);
     }
 }

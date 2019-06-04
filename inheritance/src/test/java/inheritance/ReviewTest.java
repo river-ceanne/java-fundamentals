@@ -21,4 +21,14 @@ public class ReviewTest {
         assertEquals("The burger was just ok",review.getBody());
         assertEquals(3,review.getStars());
     }
+
+    @Test
+    public void testReviewToString(){
+        Review review = new Review("John Doe","The burger was just ok",3);
+        System.out.println(review);
+
+        assertEquals("Author: John Doe\n" +
+                "# of Stars: 3\n" +
+                "Body: The burger was just ok\n",review.toString());
+    }
 }

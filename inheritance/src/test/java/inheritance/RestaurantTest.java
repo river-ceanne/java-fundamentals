@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 
 public class RestaurantTest {
     @Test
-    public void testRestaruantDefaultConstructor() {
+    public void testRestaurantDefaultConstructor() {
         Restaurant restaurant = new Restaurant();
         assertEquals("",restaurant.getName());
         assertEquals(0,restaurant.getStars());
@@ -18,7 +18,7 @@ public class RestaurantTest {
     }
 
     @Test
-    public void testRestaruantConstructor() {
+    public void testRestaurantConstructor() {
         Restaurant restaurant = new Restaurant("McDonalds",5,1,new ArrayList<>());
         assertEquals("McDonalds",restaurant.getName());
         assertEquals(5,restaurant.getStars());
@@ -36,5 +36,14 @@ public class RestaurantTest {
         restaurant.addReview(review2);
         restaurant.addReview(review3);
         assertEquals(4,restaurant.getStars());
+    }
+
+    @Test
+    public void testRestaurantToString() {
+        Restaurant restaurant = new Restaurant("McDonalds",5,2,new ArrayList<>());
+        System.out.println(restaurant);
+        assertEquals("Restaurant Name: McDonalds\n" +
+                "# of Stars: 5\n" +
+                "Price Category: $$",restaurant.toString());
     }
 }
