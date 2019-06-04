@@ -49,8 +49,21 @@ public class RestaurantTest {
         restaurant.addReview(review3);
 
         System.out.println(restaurant);
-//        assertEquals("Restaurant Name: McDonalds\n" +
-//                "# of Stars: 5\n" +
-//                "Price Category: $$",restaurant.toString());
+        assertEquals("Restaurant Name: McDonalds\n" +
+                "# of Stars: 3\n" +
+                "Price Category: $$\n" +
+                "Reviews: \n" +
+                "\n" +
+                "Author: John Doe\n" +
+                "# of Stars: 3\n" +
+                "Body: The burger was just ok\n" +
+                "\n" +
+                "Author: Jane Doe\n" +
+                "# of Stars: 5\n" +
+                "Body: The burger was just great\n" +
+                "\n" +
+                "Author: Sarah Doe\n" +
+                "# of Stars: 1\n" +
+                "Body: The burger sucked\n" ,restaurant.toString());
     }
 }
