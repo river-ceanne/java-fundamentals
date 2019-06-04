@@ -6,7 +6,11 @@ public class Review {
     private String body;
     private int stars;
 
-    public Review(){}
+    public Review(){
+        this.author = "";
+        this.body = "";
+        this.stars = 0;
+    }
 
     public Review(String author, String body, int stars){
         this.author = author;

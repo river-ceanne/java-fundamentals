@@ -29,9 +29,12 @@ public class RestaurantTest {
     @Test
     public void testAddReview() {
         Restaurant restaurant = new Restaurant();
-        assertEquals("",restaurant.getName());
-        assertEquals(0,restaurant.getStars());
-        assertEquals(0,restaurant.getPriceCategory());
-        assertEquals(new ArrayList<>(),restaurant.getReviews());
+        Review review1 = new Review("","",5);
+        Review review2 = new Review("","",4);
+        Review review3 = new Review("","",3);
+        restaurant.addReview(review1);
+        restaurant.addReview(review2);
+        restaurant.addReview(review3);
+        assertEquals(4,restaurant.getStars());
     }
 }
