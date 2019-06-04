@@ -16,3 +16,7 @@
 ### Linter
   - Lab 3 - java application made as a linter to javascript files. File and the function located on src/main/java/linter --> App.js -> jsLinter(Path path)
   - Lab 3 - unit tests and test javascript files were also added on src/test/java/linter
+
+### Inheritance
+  - Lab 6 - java application made with 2 classes - Restaurant and Reviews
+  - Lab 6 - association between Restaurant class and Review class is via composition. 
