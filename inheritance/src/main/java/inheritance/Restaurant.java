@@ -77,9 +77,16 @@ public class Restaurant {
             priceCat.append("$");
         }
 
+        StringBuilder allReviews = new StringBuilder();
+        for(Review rev: this.reviews){
+            allReviews.append("\n");
+            allReviews.append(rev);
+        }
+
 
         return String.format("Restaurant Name: %s\n" +
                 "# of Stars: %d\n" +
-                "Price Category: %s" ,this.name,this.stars,priceCat.toString(),this.reviews);
+                "Price Category: %s\n" +
+                "Reviews: \n%s" ,this.name,this.stars,priceCat.toString(),allReviews);
     }
 }
