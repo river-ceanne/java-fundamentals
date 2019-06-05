@@ -50,9 +50,13 @@ public class RestaurantTest {
 
         System.out.println(restaurant);
         assertEquals("Restaurant Name: McDonalds\n" +
+                "\n" +
                 "# of Stars: 3\n" +
+                "\n" +
                 "Price Category: $$\n" +
+                "\n" +
                 "Reviews: \n" +
+                "\n" +
                 "\n" +
                 "Author: John Doe\n" +
                 "# of Stars: 3\n" +
