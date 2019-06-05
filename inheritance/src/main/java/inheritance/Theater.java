@@ -39,7 +39,11 @@ public class Theater extends Reviewable{
     }
 
     public void removeMovie(String movie) throws IllegalAccessException {
-        if(!movies.remove(movie)) throw new IllegalAccessException("movie is not there for removal");
+        if(!movies.contains(movie)) {
+            throw new IllegalAccessException("movie is not there for removal");
+        }
+
+        movies.remove(movie);
     }
 
     public void setMovies(ArrayList<String> movies) {

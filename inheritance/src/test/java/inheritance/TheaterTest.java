@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TheaterTest {
     @Test
@@ -72,6 +71,18 @@ public class TheaterTest {
         theater.addMovie("Bad Moms");
         theater.addMovie("Aladdin");
         assertTrue(theater.getMovies().contains("Aladdin"));
+
+    }
+
+    @Test
+    public void testTheaterRemoveMovies() throws IllegalAccessException {
+        Theater theater = new Theater("AMC Pike",new ArrayList<>(),4,new ArrayList<>());
+        theater.addMovie("Avengers");
+        theater.addMovie("Bad Moms");
+        theater.addMovie("Aladdin");
+
+        theater.removeMovie("Aladdin");
+        assertFalse(theater.getMovies().contains("Aladdin"));
 
     }
 
