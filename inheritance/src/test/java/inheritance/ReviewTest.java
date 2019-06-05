@@ -23,6 +23,12 @@ public class ReviewTest {
         assertEquals(3,review.getStars());
     }
 
+    @Test (expected = IllegalStateException.class)
+    public void testReviewConstructorOnlyForTheater() {
+        Restaurant restaurant = new Restaurant();
+        Review review = new Review("John Doe","The burger was just ok",3,restaurant,"Noodles");
+    }
+
     @Test
     public void testReviewToString(){
         Restaurant restaurant = new Restaurant();
