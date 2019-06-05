@@ -20,3 +20,5 @@
 ### Inheritance
   - Lab 6 - java application made with 2 classes - Restaurant and Reviews
   - Lab 6 - association between Restaurant class and Review class is via composition. 
+  - Lab 7 - extension of Lab 6 - creating class Shop and Theater 
+  - Lab 7 - implementing a relationship between Reviews and new made classes
