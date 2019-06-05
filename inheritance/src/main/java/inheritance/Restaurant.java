@@ -2,30 +2,25 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Restaurant {
-    //Create a class to represent a Restaurant.
-    // Each Restaurant should have a name, a number of stars betweeen 0 and 5, and a price category (i.e. number of dollar signs).
-    //Implement a Restaurant constructor.
-    //Test that your Restaurant constructor is behaving reasonably.
-    //Implement a reasonable toString method for Restaurants.
-    //Write a test to create an instance of Restaurant and ensure that its toString is working properly.
+public class Restaurant extends Reviewable{
+
     private String name;
     private int stars;
     private int priceCategory;
-    private ArrayList<Review> reviews;
 
     public Restaurant(){
+        super();
         this.name = "";
         this.stars = 0; //# of stars
         this.priceCategory = 0; //# of dollar signs
-        this.reviews = new ArrayList<>();
+
     }
 
     public Restaurant(String name, int stars, int priceCategory, ArrayList<Review> reviews){
+        super(reviews);
         this.name = name;
         this.stars = stars;
         this.priceCategory = priceCategory;
-        this.reviews = reviews;
     }
 
     public String getName() {
@@ -41,7 +36,7 @@ public class Restaurant {
     }
 
     public ArrayList<Review> getReviews() {
-        return reviews;
+        return super.getReviews();
     }
 
     public void setName(String name) {
@@ -57,16 +52,16 @@ public class Restaurant {
     }
 
     public void setReviews(ArrayList<Review> reviews) {
-        this.reviews = reviews;
+        super.setReviews(reviews);
     }
 
     public void addReview(Review review){
-        this.reviews.add(review);
+        super.getReviews().add(review);
         int sum = 0;
-        for (Review val: this.reviews) {
+        for (Review val: super.getReviews()) {
             sum += val.getStars();
         }
-        this.setStars(sum / this.reviews.size());
+        this.setStars(sum / this.getReviews().size());
     }
 
     @Override
@@ -78,7 +73,7 @@ public class Restaurant {
         }
 
         StringBuilder allReviews = new StringBuilder();
-        for(Review rev: this.reviews){
+        for(Review rev: this.getReviews()){
             allReviews.append("\n");
             allReviews.append(rev);
         }

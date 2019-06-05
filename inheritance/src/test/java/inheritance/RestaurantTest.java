@@ -29,9 +29,9 @@ public class RestaurantTest {
     @Test
     public void testAddReview() {
         Restaurant restaurant = new Restaurant();
-        Review review1 = new Review("","",5);
-        Review review2 = new Review("","",4);
-        Review review3 = new Review("","",3);
+        Review review1 = new Review("","",5,restaurant);
+        Review review2 = new Review("","",4,restaurant);
+        Review review3 = new Review("","",3,restaurant);
         restaurant.addReview(review1);
         restaurant.addReview(review2);
         restaurant.addReview(review3);
@@ -41,9 +41,9 @@ public class RestaurantTest {
     @Test
     public void testRestaurantToString() {
         Restaurant restaurant = new Restaurant("McDonalds",5,2,new ArrayList<>());
-        Review review1 = new Review("John Doe","The burger was just ok",3);
-        Review review2 = new Review("Jane Doe","The burger was just great",5);
-        Review review3 = new Review("Sarah Doe","The burger sucked",1);
+        Review review1 = new Review("John Doe","The burger was just ok",3,restaurant);
+        Review review2 = new Review("Jane Doe","The burger was just great",5,restaurant);
+        Review review3 = new Review("Sarah Doe","The burger sucked",1,restaurant);
         restaurant.addReview(review1);
         restaurant.addReview(review2);
         restaurant.addReview(review3);

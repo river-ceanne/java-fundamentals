@@ -2,7 +2,7 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Shop {
+public class Shop extends Reviewable{
 
     private String name;
     private String description;

@@ -17,4 +17,14 @@ public class TheaterTest {
 
     }
 
+    @Test
+    public void testTheaterConstructor() {
+        Theater theater = new Theater();
+        assertEquals("",theater.getName());
+        assertEquals(0,theater.getStars());
+        assertEquals(new ArrayList<>(),theater.getMovies());
+        assertEquals(new ArrayList<>(),theater.getReviews());
+
+    }
+
 }

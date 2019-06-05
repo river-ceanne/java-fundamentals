@@ -15,8 +15,9 @@ public class ReviewTest {
     }
 
     @Test
-    public void testReviewConstructor() {
-        Review review = new Review("John Doe","The burger was just ok",3);
+    public void testReviewConstructorRestaurant() {
+        Restaurant restaurant = new Restaurant();
+        Review review = new Review("John Doe","The burger was just ok",3,restaurant);
         assertEquals("John Doe",review.getAuthor());
         assertEquals("The burger was just ok",review.getBody());
         assertEquals(3,review.getStars());
@@ -24,7 +25,8 @@ public class ReviewTest {
 
     @Test
     public void testReviewToString(){
-        Review review = new Review("John Doe","The burger was just ok",3);
+        Restaurant restaurant = new Restaurant();
+        Review review = new Review("John Doe","The burger was just ok",3,restaurant);
         System.out.println(review);
 
         assertEquals("Author: John Doe\n" +
