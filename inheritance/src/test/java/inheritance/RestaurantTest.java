@@ -68,6 +68,6 @@ public class RestaurantTest {
                 "\n" +
                 "Author: Sarah Doe\n" +
                 "# of Stars: 1\n" +
-                "Body: The burger sucked" ,restaurant.toString());
+                "Body: The burger sucked\n" ,restaurant.toString());
     }
 }
