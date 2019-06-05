@@ -90,7 +90,7 @@ public class Shop extends Reviewable{
             priceCat.append("$");
         }
 
-        return String.format("Shop Name: %s\nDescription: %s\nRating: %d out of 5 stars\nAffordability: %s\nReviews: %s\n",
+        return String.format("Shop Name: %s\n\nDescription: %s\n\nRating: %d out of 5 stars\n\nAffordability: %s\n\nReviews: %s\n",
                 name,description,stars,priceCat,reviewList);
 
     }

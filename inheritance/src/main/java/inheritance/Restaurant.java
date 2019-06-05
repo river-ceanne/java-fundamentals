@@ -80,9 +80,9 @@ public class Restaurant extends Reviewable{
         }
 
 
-        return String.format("Restaurant Name: %s\n" +
-                "# of Stars: %d\n" +
-                "Price Category: %s\n" +
-                "Reviews: \n%s" ,this.name,this.stars,priceCat.toString(),allReviews);
+        return String.format("Restaurant Name: %s\n\n" +
+                "# of Stars: %d\n\n" +
+                "Price Category: %s\n\n" +
+                "Reviews: \n\n%s" ,this.name,this.stars,priceCat.toString(),allReviews);
     }
 }
