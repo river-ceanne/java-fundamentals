@@ -86,4 +86,14 @@ public class TheaterTest {
 
     }
 
+    @Test (expected = IllegalAccessException.class)
+    public void testTheaterRemoveMoviesNotIncluded() throws IllegalAccessException {
+        Theater theater = new Theater("AMC Pike",new ArrayList<>(),4,new ArrayList<>());
+        theater.addMovie("Avengers");
+        theater.addMovie("Bad Moms");
+
+        theater.removeMovie("Aladdin");
+
+    }
+
 }
