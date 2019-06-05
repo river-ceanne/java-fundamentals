@@ -55,6 +55,7 @@ public class Restaurant extends Reviewable{
         super.setReviews(reviews);
     }
 
+    @Override
     public void addReview(Review review){
         super.getReviews().add(review);
         int sum = 0;

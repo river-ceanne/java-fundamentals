@@ -8,21 +8,20 @@ public class Shop extends Reviewable{
     private String description;
     private int dollarSigns;
     private int stars;
-    private ArrayList<Review> reviews;
 
     public Shop(){
+        super();
         name = "";
         description = "";
         dollarSigns = 0;
         stars = 0;
-        reviews = new ArrayList<>();
     }
 
     public Shop(String name, String description, int dollarSigns, int stars, ArrayList<Review> reviews){
+        super(reviews);
         this.name = name;
         this.description = description;
         this.dollarSigns = dollarSigns;
-        this.reviews = reviews;
         this.stars = stars;
     }
 
@@ -61,16 +60,38 @@ public class Shop extends Reviewable{
     }
 
     public ArrayList<Review> getReviews() {
-        return reviews;
+        return super.getReviews();
     }
 
     public void setReviews(ArrayList<Review> reviews) {
-        this.reviews = reviews;
+        super.setReviews(reviews);
     }
 
+    @Override
+    public void addReview(Review review) {
+        super.getReviews().add(review);
+        int sum = 0;
+        for (Review val: super.getReviews()) {
+            sum += val.getStars();
+        }
+        this.setStars(sum / this.getReviews().size());
+    }
 
     @Override
     public String toString() {
-        return super.toString();
+
+        StringBuilder reviewList = new StringBuilder();
+        for(Review review: super.getReviews()){
+            reviewList.append("\n").append(review);
+        }
+
+        StringBuilder priceCat = new StringBuilder();
+        for(int i = 0; i < this.getDollarSigns(); i++){
+            priceCat.append("$");
+        }
+
+        return String.format("Shop Name: %s\nDescription: %s\nRating: %d out of 5 stars\nAffordability: %s\nReviews: %s\n",
+                name,description,stars,priceCat,reviewList);
+
     }
 }

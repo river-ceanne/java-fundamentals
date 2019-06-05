@@ -20,4 +20,6 @@ public abstract class Reviewable {
     public void setReviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
     }
+
+    public abstract void addReview(Review review);
 }

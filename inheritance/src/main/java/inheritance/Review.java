@@ -16,7 +16,6 @@ public class Review {
         this.author = author;
         this.body = body;
         this.stars = stars;
-        System.out.println(reviewable.getClass().getName());
         switch (reviewable.getClass().getTypeName()){
             case "inheritance.Restaurant":
                 this.reviewable = new Restaurant();

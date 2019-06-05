@@ -63,15 +63,30 @@ public class Theater extends Reviewable{
         super.setReviews(reviews);
     }
 
+    @Override
+    public void addReview(Review review) {
+        super.getReviews().add(review);
+        int sum = 0;
+        for (Review val: super.getReviews()) {
+            sum += val.getStars();
+        }
+        this.setStars(sum / this.getReviews().size());
+    }
+
 
     @Override
     public String toString() {
+
+        StringBuilder reviewList = new StringBuilder();
+        for(Review review: super.getReviews()){
+            reviewList.append("\n").append(review);
+        }
 
         StringBuilder movieList = new StringBuilder();
         for (String movie: movies){
             movieList.append("\n").append(movie);
         }
 
-        return String.format("Theater Name: %s\nMovies:%s",name,movieList);
+        return String.format("Theater Name: %s\nMovies:%s\nReviews: %s",name,movieList,reviewList);
     }
 }
