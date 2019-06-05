@@ -34,6 +34,9 @@ public class ShopTest {
     @Test
     public void testShopToString(){
         Shop shop = new Shop("Roosevelt Field","Mall in Garden City",4,5,new ArrayList<>());
+        Review review1 = new Review("Bellevue Square","Great seats!",5,shop);
+        Review review2 = new Review("Westlake Center","Popcorn sucks",4,shop);
+        Review review3 = new Review("SouthCenter Mall","Love this theater!",3,shop);
         System.out.println(shop);
     }
 }

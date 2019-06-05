@@ -5,6 +5,7 @@ public class Review {
     private String body;
     private int stars;
     private Reviewable reviewable;
+    private String ext_detail;
 
     public Review(){
         this.author = "";
@@ -27,6 +28,20 @@ public class Review {
                 this.reviewable = new Theater();
                 break;
         }
+    }
+
+    public Review(String author, String body, int stars, Reviewable reviewable, String movie){
+
+        if(reviewable.getClass().getTypeName() != "inheritance.Theater"){
+            throw new IllegalStateException("constructor only allowed for Reviewable extended to Theater class object");
+        }
+
+        this.author = author;
+        this.body = body;
+        this.stars = stars;
+        this.reviewable = new Theater();
+        this.ext_detail = movie;
+
     }
 
     public String getAuthor() {
@@ -53,6 +68,14 @@ public class Review {
         this.body = body;
     }
 
+    public String getExt_detail() {
+        return ext_detail;
+    }
+
+    public void setExt_detail(String ext_detail) {
+        this.ext_detail = ext_detail;
+    }
+
     public Reviewable getReviewable() {
         return reviewable;
     }
@@ -65,20 +88,11 @@ public class Review {
     @Override
     public String toString() {
 
-        switch (reviewable.getClass().getTypeName()){
-            case "inheritance.Theater":
-//                Theater theater = (Theater) reviewable;
-//                return String.format("Author: %s\n" +
-//                        "Movie: %s\n" +
-//                        "# of Stars: %d\n" +
-//                        "Body: %s\n",this.author,theater.getMovies().,this.stars,this.body);
-                break;
-            default:
-                return String.format("Author: %s\n" +
-                        "# of Stars: %d\n" +
-                        "Body: %s\n",this.author,this.stars,this.body);
-
-
+        if(reviewable.getClass().getTypeName() == "inheritance.Theater"){
+            return String.format("Author: %s\n" +
+                    "Movie: %s\n" +
+                    "# of Stars: %d\n" +
+                    "Body: %s\n",this.author,this.getExt_detail(),this.stars,this.body);
         }
 
         return String.format("Author: %s\n" +
@@ -86,5 +100,6 @@ public class Review {
                 "Body: %s\n",this.author,this.stars,this.body);
 
     }
+
 
 }
