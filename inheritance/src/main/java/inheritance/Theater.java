@@ -87,6 +87,6 @@ public class Theater extends Reviewable{
             movieList.append("\n").append(movie);
         }
 
-        return String.format("Theater Name: %s\n\nMovies:%s\n\nReviews: %s",name,movieList,reviewList);
+        return String.format("Theater Name: %s\n\nMovies:%s\n\nReviews: %s",name,movieList.toString(),reviewList.toString());
     }
 }

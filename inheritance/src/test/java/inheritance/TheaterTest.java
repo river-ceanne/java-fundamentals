@@ -41,9 +41,28 @@ public class TheaterTest {
         theater.addMovie("Bad Moms");
         theater.addMovie("Aladdin");
 
-
-        System.out.println(theater);
-
+        assertEquals("Theater Name: AMC Pike\n" +
+                "\n" +
+                "Movies:\n" +
+                "Avengers\n" +
+                "Bad Moms\n" +
+                "Aladdin\n" +
+                "\n" +
+                "Reviews: \n" +
+                "Author: Jane Doe\n" +
+                "Movie: Avengers\n" +
+                "# of Stars: 4\n" +
+                "Body: Great seats!\n" +
+                "\n" +
+                "Author: John Doe\n" +
+                "Movie: Avengers\n" +
+                "# of Stars: 3\n" +
+                "Body: Popcorn sucks\n" +
+                "\n" +
+                "Author: Sam Doe\n" +
+                "Movie: Aladdin\n" +
+                "# of Stars: 5\n" +
+                "Body: Love this theater!\n",theater.toString());
     }
 
     @Test

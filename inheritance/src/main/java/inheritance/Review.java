@@ -88,7 +88,7 @@ public class Review {
     @Override
     public String toString() {
 
-        if(reviewable.getClass().getTypeName() == "inheritance.Theater"){
+        if(reviewable.getClass().getTypeName() == "inheritance.Theater" && this.ext_detail != null){
             return String.format("Author: %s\n" +
                     "Movie: %s\n" +
                     "# of Stars: %d\n" +
