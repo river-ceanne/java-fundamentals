@@ -64,9 +64,27 @@ public class Review {
 
     @Override
     public String toString() {
+
+        switch (reviewable.getClass().getTypeName()){
+            case "inheritance.Theater":
+//                Theater theater = (Theater) reviewable;
+//                return String.format("Author: %s\n" +
+//                        "Movie: %s\n" +
+//                        "# of Stars: %d\n" +
+//                        "Body: %s\n",this.author,theater.getMovies().,this.stars,this.body);
+                break;
+            default:
+                return String.format("Author: %s\n" +
+                        "# of Stars: %d\n" +
+                        "Body: %s\n",this.author,this.stars,this.body);
+
+
+        }
+
         return String.format("Author: %s\n" +
                 "# of Stars: %d\n" +
                 "Body: %s\n",this.author,this.stars,this.body);
+
     }
 
 }

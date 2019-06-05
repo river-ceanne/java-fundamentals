@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TheaterTest {
     @Test
@@ -42,6 +43,16 @@ public class TheaterTest {
 
 
         System.out.println(theater);
+
+    }
+
+    @Test
+    public void testTheaterAddMovies(){
+        Theater theater = new Theater("AMC Pike",new ArrayList<>(),4,new ArrayList<>());
+        theater.addMovie("Avengers");
+        theater.addMovie("Bad Moms");
+        theater.addMovie("Aladdin");
+        assertTrue(theater.getMovies().contains("Aladdin"));
 
     }
 
