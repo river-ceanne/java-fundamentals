@@ -32,6 +32,18 @@ public class ShopTest {
     }
 
     @Test
+    public void testAddReview() {
+        Shop shop = new Shop("Roosevelt Field","Mall in Garden City",4,0,new ArrayList<>());
+        Review review1 = new Review("","",5,shop);
+        Review review2 = new Review("","",4,shop);
+        Review review3 = new Review("","",3,shop);
+        shop.addReview(review1);
+        shop.addReview(review2);
+        shop.addReview(review3);
+        assertEquals(4,shop.getStars());
+    }
+
+    @Test
     public void testShopToString(){
         Shop shop = new Shop("Roosevelt Field","Mall in Garden City",4,0,new ArrayList<>());
         Review review1 = new Review("Bellevue Square","Great!",5,shop);
